@@ -38,13 +38,11 @@ let apply_command acc cmd =
   | Up a -> { x; y = y + a }
   | Down a -> { x; y = y - a }
 
-let last =
+let () =
   let lines = read_lines file in
   let commands = List.map parse_line lines in
-  List.fold_left apply_command { x = 0; y = 0 } commands
-
-let () =
-  let { x; y } = last in
+  let final_coord = List.fold_left apply_command { x = 0; y = 0 } commands in
+  let { x; y } = final_coord in
   let product = x * y in
   let t = abs product in
   print_int t;
