@@ -30,9 +30,9 @@ let parse_line l =
       | _ -> raise (E "Unknown command"))
   | _ -> raise (E "Command format is wrong")
 
-let apply_command acc cmd =
-  let { x; y } = acc in
-  match cmd with
+let apply_command coord command =
+  let { x; y } = coord in
+  match command with
   | Forward a -> { x = x + a; y }
   | Backward a -> { x = x - a; y }
   | Up a -> { x; y = y + a }
