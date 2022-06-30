@@ -29,6 +29,7 @@ let parse_line l =
       | _ -> raise (E "Unknown command"))
   | _ -> raise (E "Command format is wrong")
 
+(* Part 1 *)
 let apply_command coord command =
   let { x; y } = coord in
   match command with
@@ -46,6 +47,7 @@ let () =
   print_int t;
   print_newline ()
 
+(* Part 2 *)
 type aim_and_coord = { x : int; y : int; aim : int }
 
 let apply_command_2 coord command =
