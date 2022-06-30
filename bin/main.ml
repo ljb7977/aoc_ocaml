@@ -15,7 +15,7 @@ let read_lines name : string list =
   in
   loop []
 
-exception E
+exception E of string
 
 let parse_line l =
   let strings = String.split_on_char ' ' l in
@@ -27,8 +27,8 @@ let parse_line l =
       | "backward" -> Backward amount
       | "up" -> Up amount
       | "down" -> Down amount
-      | _ -> raise E)
-  | _ -> raise E
+      | _ -> raise (E "Unknown command"))
+  | _ -> raise (E "Command format is wrong")
 
 let apply_command acc cmd =
   let { x; y } = acc in
@@ -47,4 +47,5 @@ let () =
   let { x; y } = last in
   let product = x * y in
   let t = abs product in
-  print_int t; print_newline ();
+  print_int t;
+  print_newline ()
