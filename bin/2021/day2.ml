@@ -1,19 +1,8 @@
+open Aoc_ocaml
 let file = "resource/2021/day2.input"
 
 type command = Forward of int | Up of int | Down of int
 type coord = { x : int; y : int }
-
-let read_lines name : string list =
-  let ic = open_in name in
-  let try_read () = try Some (input_line ic) with End_of_file -> None in
-  let rec loop acc =
-    match try_read () with
-    | Some s -> loop (s :: acc)
-    | None ->
-        close_in ic;
-        List.rev acc
-  in
-  loop []
 
 exception E of string
 

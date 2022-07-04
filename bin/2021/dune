@@ -1,0 +1,17 @@
+(executable
+ (public_name tutorial)
+ (name tutorial)
+ (modules tutorial)
+ (libraries aoc_ocaml base core))
+
+(executable
+ (public_name day2)
+ (name day2)
+ (modules day2)
+ (libraries aoc_ocaml core))
+
+(executable
+ (public_name day3)
+ (name day3)
+ (modules day3)
+ (libraries aoc_ocaml core))
