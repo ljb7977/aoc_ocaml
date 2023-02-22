@@ -16,6 +16,12 @@
  (modules day3)
  (libraries aoc_ocaml core))
 
+(executable
+ (public_name realworldocaml)
+ (name realworldocaml)
+ (modules realworldocaml)
+ (libraries base stdio))
+
 (env
  (dev
   (flags (:standard -warn-error -A))))

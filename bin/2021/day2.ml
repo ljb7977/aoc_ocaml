@@ -39,9 +39,7 @@ let () =
 (* Part 2 *)
 type aim_and_coord = { x : int; y : int; aim : int }
 
-let apply_command_2 coord command =
-  let { aim; x; y } = coord in
-  match command with
+let apply_command_2 { aim; x; y } = function
   | Down a -> { x; y; aim = aim + a }
   | Up a -> { x; y; aim = aim - a }
   | Forward a -> { x = x + a; y = y + (aim * a); aim }
